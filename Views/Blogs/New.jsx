@@ -12,7 +12,7 @@ class New extends React.Component {
           Tweet: <textarea type="textarea" name="body" rows="25"
           cols="25"required maxLength={333} /><br />
 
-          Author: <input type="text" name="author" /><br />
+          {/* Author: <input type="text" name="author" /><br /> */}
 
           Title: <input type="text" name="title" /><br />
 

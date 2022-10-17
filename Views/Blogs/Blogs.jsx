@@ -3,10 +3,11 @@ const Navbar = require('../components/Navbar')
 
 class Blogs extends React.Component {
     render(){
-        const { blogs } = this.props;
+        const { blogs, loggedInUser } = this.props;
+        console.log(loggedInUser)
         return (
             <div>
-                <Navbar />
+                <Navbar/>
                 <head>
                     <link rel="stylesheet" href="/CSS/app.css" />
                 </head>
@@ -15,6 +16,7 @@ class Blogs extends React.Component {
                 <section>
                     {blogs.map((blog) => (
                         <div>
+                
                             <a href={`/blog/${blog._id}`}>
                             {" "}
                             <h2>{blog.title}</h2>
@@ -23,6 +25,11 @@ class Blogs extends React.Component {
                                 <p>{blog.body}</p>
                             </div>
                             <h6>Written by: {blog.author}</h6>
+                            
+                            <a href={`/blog/${blog._id}/edit`}><button>Edit</button></a>
+                            <form action={`/blog/${blog._id}?_method=delete`} method='post'>
+                            <input type="submit" value="Delete" />
+                            </form>
                         </div>
                     ))}
                 </section>

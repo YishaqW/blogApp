@@ -3,16 +3,18 @@ const Navbar = require('../components/Navbar')
 
 class ShowBlog extends React.Component {
     render(){
-        const {blog} = this.props
+        const {blogs} = this.props
         return(
             <div>
               <Navbar />
-                <h1>{blog.title}</h1>
+                <h1>{blogs.title}</h1>
 
-                <p>{blog.body}</p>
-                <h6>Liked by {blog.likes}</h6>
+                <p>{blogs.body}</p>
+                <h6>Liked by {blogs.likes}</h6>
 
-                <h5>Written by: {blog.author}</h5>
+                <h5>Written by: {blogs.author}</h5>
+
+                <a href={`/blog/${blogs._id}/edit`}><button>Edit</button></a>
             </div>
         )
     }
