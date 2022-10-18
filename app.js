@@ -2,44 +2,49 @@ const express = require('express')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
-require('dotenv').config()
+const session = require('express-session')
 const MongoStore = require('connect-mongo')
+require('dotenv').config()
+
 
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
-// ==== Mount Middleware ==== (app.use)
-app.use(morgan('dev')) 
-app.use(express.json())
 app.use(express.static('public'))
+app.use(morgan('dev'))
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(methodOverride("_method"));
-// app.use(session({
-//     secret: process.env.SECRET,
-//     store: MongoStore.create({mongoUrl: process.env.MONGO_URI}),
-//     resave: false,
-//     saveUninitialized: true
-// }))
+app.use(methodOverride('_method'))
+app.use(session({
+  secret: process.env.SECRET,
+  store: MongoStore.create({mongoUrl: process.env.MONGO_URI}),
+  resave: false,
+  saveUninitialized: true
+}))
+
+// App settings
 app.set("view engine", "jsx");
 app.engine("jsx", require("express-react-views").createEngine());
 
 app.use('/blog', require('./controllers/BlogRouter'))
 app.use('/user', require('./controllers/UserRouter'))
 
+
 app.get('/', (req, res) => {
-    res.render('Pages/HomePage')
+    res.render('pages/HomePage')
 })
 
 
 app.listen(PORT, () => {
-    console.log(`server running on port: ${PORT}`)
-      // connect to MongoDB
-    mongoose.connect(process.env.MONGO_URI, { 
-      useNewUrlParser: true, 
-      useUnifiedTopology: true 
-    });
+    console.log(`Server running on port: ${PORT}`);
+
+    // connect to MongoDB
+    mongoose.connect(process.env.MONGO_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
       // confirm that we have a connection to MongoDB
-    mongoose.connection.once('open', ()=> {
-        console.log('connected to mongo');
-    });
+      mongoose.connection.once("open", () => {
+        console.log("connected to mongo");
+      });
 })

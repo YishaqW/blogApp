@@ -1,46 +1,58 @@
-const React = require('react')
-const Navbar = require('../components/Navbar')
+const React = require("react");
+const NavBar = require("../components/Navbar");
 
 class Blogs extends React.Component {
-    render(){
-        const { blogs, loggedInUser } = this.props;
-        console.log(loggedInUser)
-        return (
-            <div>
-                <Navbar/>
-                <head>
-                    <link rel="stylesheet" href="/CSS/app.css" />
-                </head>
-                <h1>Blogs</h1>
+  render() {
+    const { blogs, loggedInUser } = this.props;
+    console.log(loggedInUser);
+    return (
+      <div>
+        <head>
+          <link rel="stylesheet" href="/CSS/app.css" />
+        </head>
 
-                <section>
-                    {blogs.map((blog) => (
-                        <div>
-                
-                            <a href={`/blog/${blog._id}`}>
-                            {" "}
-                            <h2>{blog.title}</h2>
-                            </a>
-                            <div>
-                                <p>{blog.body}</p>
-                            </div>
-                            <h6>Written by: {blog.author}</h6>
-                            
-                            <a href={`/blog/${blog._id}/edit`}><button>Edit</button></a>
-                            <form action={`/blog/${blog._id}?_method=delete`} method='post'>
-                            <input type="submit" value="Delete" />
-                            </form>
-                        </div>
-                    ))}
-                </section>
+        <NavBar />
+
+        <h1>Blogs</h1>
+
+        <section style={styles.container}>
+          {blogs.map((blog) => (
+            <div style={styles.wrapper} className="card">
+              <a href={`/blog/${blog._id}`}>
+                {" "}
+                <h2>{blog.title}</h2>
+              </a>
+              <div>
+                <p>{blog.body}</p>
+              </div>
+              <h6>Written by: {blog.author}</h6>
+
+              {blog.author === loggedInUser ? (
+                <div>
+                  <a href={`/blog/${blog._id}/edit`}>Edit</a>
+                </div>
+              ) : null}
             </div>
-        )
-    }
+          ))}
+        </section>
+      </div>
+    );
+  }
 }
-module.exports = Blogs
-
-
-
-
-
-
+const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+  },
+  wrapper: {
+    padding: "20px",
+    margin: "10px",
+    width: "300px",
+    border: "solid",
+    borderWidth: "2px",
+    borderColor: "black",
+  },
+};
+module.exports = Blogs;

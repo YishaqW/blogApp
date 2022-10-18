@@ -1,6 +1,14 @@
-@import url("https://fonts.googleapis.com/css?family=Comfortaa|Righteous");
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Righteous");
 
+a {
+    font-family: 'Rubik Iso';
+    color: royalblue;
+    text-decoration: none;
+    font-size: 1.5em;
+    padding: 5px;
+    text-shadow: 1px 1px 1px black;
+}
 
 body {
   /* background: url(https://images.clipartlogo.com/files/istock/previews/8741/87414357-apple-seamless-pastel-colors-pattern-fruits-texture-background.jpg); */
@@ -9,42 +17,14 @@ body {
 }
 
 h1 {
-  font-family: 'Rubik Iso';
+  font-family: "Righteous", cursive;
   font-size: 33px;
-  color: royalblue;
   /* background: #FF731D; */
   /* margin:0;
   margin-bottom: .5em;
   padding: 1em;
   color: '#fff' */
   /* text-align: center; */
-}
-
-h1:hover {
-color: orange;
-cursor: pointer
-}
-
-h1:active {
-  color: royalblue;
-  cursor: pointer
-  }
-
-h1,
-h2,
-h3,
-span {
-  padding-left: 10px;
-}
-
-a {
-  font-family: 'Rubik Iso';
-  color: royalblue;
-  text-decoration: none;
-  text-shadow: 1px 1px 1px black;
-  font-size: 1.5em;
-  /* background: rgba(1, 84, 151, 0.9); */
-  padding: 5px;
 }
 
 a:hover {
@@ -85,10 +65,6 @@ input:active {
   color: ghostwhite;
 }
 
-p {
-  padding-left: 10px;
-}
-
 .margin-section {
   margin: 200px 0;
 }
@@ -98,4 +74,3 @@ p {
   transition: 0.3s;
   width: 40%;
 }
-

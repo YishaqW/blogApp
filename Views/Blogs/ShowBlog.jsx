@@ -1,20 +1,20 @@
 const React = require('react')
-const Navbar = require('../components/Navbar')
+const Navbar = require("../components/Navbar");
 
 class ShowBlog extends React.Component {
     render(){
-        const {blogs} = this.props
+        
+        const {blog} = this.props
         return(
             <div>
-              <Navbar />
-                <h1>{blogs.title}</h1>
+                 <link rel="stylesheet" href="/CSS/app.css" />
+                 <Navbar />
+                <h1>{blog.title}</h1>
 
-                <p>{blogs.body}</p>
-                <h6>Liked by {blogs.likes}</h6>
+                <p>{blog.body}</p>
+                <h6>Liked by {blog.likes}</h6>
 
-                <h5>Written by: {blogs.author}</h5>
-
-                <a href={`/blog/${blogs._id}/edit`}><button>Edit</button></a>
+                <h5>Written by: {blog.author}</h5>
             </div>
         )
     }
