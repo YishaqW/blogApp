@@ -31,7 +31,7 @@ app.use('/user', require('./controllers/UserRouter'))
 
 
 app.get('/', (req, res) => {
-    res.render('pages/HomePage')
+    res.render('Pages/HomePage')
 })
 
 
