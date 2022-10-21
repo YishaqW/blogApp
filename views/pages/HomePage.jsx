@@ -40,14 +40,10 @@ class HomePage extends React.Component {
             <div>
               <h3>Intro to JS</h3>
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa
-                nisi maiores nulla saepe, dolore ex atque assumenda obcaecati
-                consequuntur quo possimus maxime exercitationem tempore error
-                architecto. Dolorem consequuntur cumque unde! Lorem ipsum dolor,
-                sit amet consectetur adipisicing elit. Culpa nisi maiores nulla
-                saepe, dolore ex atque assumenda obcaecati consequuntur quo
-                possimus maxime exercitationem tempore error architecto. Dolorem
-                consequuntur cumque unde!
+               let > const 
+              </p>
+              <p>
+               - thank you 
               </p>
               <span>Author: Bill</span>
             </div>
@@ -74,5 +70,6 @@ const styles = {
     width: "auto",
   },
 };
+
 
 module.exports = HomePage;
