@@ -63,7 +63,7 @@ li {
 }
 
 li a {
-  color: rgba(1, 84, 151, 0.9);
+  /* color: rgba(1, 84, 151, 0.9); */
 }
 
 input[type="text"] {
